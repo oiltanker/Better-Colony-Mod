@@ -1,0 +1,10 @@
+{
+    "id": "oiltanker_bettercolony",
+    "name": "BetterColony",
+    "author": "oiltanker",
+    "utility": "false",
+    "version": "1.0",
+    "description": "TODO",
+    "gameVersion": "0.9.1a",
+	"modPlugin": "data.scripts.BetterColonyMod"
+}

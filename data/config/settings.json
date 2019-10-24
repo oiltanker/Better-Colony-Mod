@@ -1,0 +1,5 @@
+{
+	"plugins": {
+        "BetterColonyMod": "data.scripts.BetterColonyMod"
+    }
+}
