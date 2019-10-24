@@ -14,8 +14,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
   </properties>
 
   <dependencies>
@@ -27,24 +27,37 @@
     </dependency>
     <dependency>
       <groupId>com.fs.starfarer.api</groupId>
-      <artifactId>starsector_api</artifactId>
+      <artifactId>starfarer.api</artifactId>
       <version>0.9.1</version>
-      <scope>system</scope>
-      <systemPath>${basedir}/lib/starsector_api-0.9.1.jar</systemPath>
+      <scope>compile</scope>
     </dependency>
+    <dependency>
+        <groupId>com.fs.starfarer.api</groupId>
+        <artifactId>starfarer.api</artifactId>
+        <version>0.9.1</version>
+        <classifier>sources</classifier>
+      </dependency>
     <dependency>
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
       <version>1.2.17</version>
+      <scope>compile</scope>
     </dependency>
     <dependency>
         <groupId>com.thoughtworks.xstream</groupId>
         <artifactId>xstream</artifactId>
         <version>1.4.11.1</version>
+        <scope>compile</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.1.0</version>
     </dependency>
   </dependencies>
 
   <build>
+    <sourceDirectory>src</sourceDirectory>
     <directory>build</directory>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
@@ -92,5 +105,45 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <!-- SOURCES -->
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <phase>package</phase>
+          </execution>
+        </executions>
+        <configuration>
+          <outputDirectory>jars</outputDirectory>
+        </configuration>
+      </plugin>
+      <!-- TOOLCHAIN -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-toolchains-plugin</artifactId>
+        <version>3.0.0</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>toolchain</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <toolchains>
+            <jdk>
+              <version>1.7</version>
+            </jdk>
+          </toolchains>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>

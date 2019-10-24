@@ -6,5 +6,6 @@
     "version": "1.0",
     "description": "TODO",
     "gameVersion": "0.9.1a",
+    "jars": ["jars/BetterColony-1.0.0.jar"],
 	"modPlugin": "data.scripts.BetterColonyMod"
 }

@@ -13,26 +13,14 @@ public class BetterColonyMod extends BaseModPlugin {
     };
     public static Logger logger = Global.getLogger(BetterColonyMod.class);
 
-    public static void setUseRate() {
-        logger.debug("-- BEFORE");
-        logger.debug(CoreImmigrationPluginImpl.INCENTIVE_USE_RATE);
-        logger.debug("-- REPLACE");
-        logger.debug(USE_RATE);
-        CoreImmigrationPluginImpl.INCENTIVE_USE_RATE = (float[]) USE_RATE.clone();
-        logger.debug("-- RESULT");
-        logger.debug(CoreImmigrationPluginImpl.INCENTIVE_USE_RATE);
-    }
-
     @Override
     public void onApplicationLoad() {
-        setUseRate();
+        CoreImmigrationPluginImpl.INCENTIVE_USE_RATE = (float[]) USE_RATE.clone();
     }
     @Override
     public void onEnabled(boolean wasEnabledBefore) {
-        setUseRate();
     }
     @Override
     public void onGameLoad(boolean newGame) {
-        setUseRate();
     }
 }
