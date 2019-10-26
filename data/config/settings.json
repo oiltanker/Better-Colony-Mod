@@ -1,5 +1,5 @@
 {
-	"plugins": {
-        "BetterColonyMod": "data.scripts.BetterColonyMod"
-    }
+    "minBuildableStationsOfType": 1,
+    "maxBuildableStationsOfType": 3,
+    "buildableStationClearance": 15000.0
 }

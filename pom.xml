@@ -26,17 +26,22 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-source-plugin</artifactId>
+      <version>3.1.0</version>
+    </dependency>
+    <dependency>
       <groupId>com.fs.starfarer.api</groupId>
       <artifactId>starfarer.api</artifactId>
       <version>0.9.1</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
-        <groupId>com.fs.starfarer.api</groupId>
-        <artifactId>starfarer.api</artifactId>
-        <version>0.9.1</version>
-        <classifier>sources</classifier>
-      </dependency>
+      <groupId>com.fs.starfarer.api</groupId>
+      <artifactId>starfarer.api</artifactId>
+      <version>0.9.1</version>
+      <classifier>sources</classifier>
+    </dependency>
     <dependency>
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
@@ -44,16 +49,16 @@
       <scope>compile</scope>
     </dependency>
     <dependency>
-        <groupId>com.thoughtworks.xstream</groupId>
-        <artifactId>xstream</artifactId>
-        <version>1.4.11.1</version>
-        <scope>compile</scope>
-    </dependency>
+      <groupId>com.thoughtworks.xstream</groupId>
+      <artifactId>xstream</artifactId>
+      <version>1.4.11.1</version>
+      <scope>compile</scope>
+  </dependency>
     <dependency>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-source-plugin</artifactId>
-        <version>3.1.0</version>
-    </dependency>
+      <groupId>org.lwjgl.lwjgl</groupId>
+      <artifactId>lwjgl_util</artifactId>
+      <version>2.9.3</version>
+  </dependency>
   </dependencies>
 
   <build>

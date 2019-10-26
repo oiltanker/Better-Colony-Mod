@@ -4,8 +4,8 @@
     "author": "oiltanker",
     "utility": "false",
     "version": "1.0",
-    "description": "TODO",
+    "description": "The mod that seeks to better colony game-play by adding some balancing changes, as well as new buildable stations, structures and industries.",
     "gameVersion": "0.9.1a",
     "jars": ["jars/BetterColony-1.0.0.jar"],
-	"modPlugin": "data.scripts.BetterColonyMod"
+	"modPlugin": "com.github.bettercolony.BetterColonyMod"
 }
