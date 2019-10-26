@@ -1,0 +1,1 @@
+mvn install:install-file -Dfile="./lib/0.9.1/starfarer.api.jar" -DgroupId=com.fs.starfarer.api -DartifactId=starfarer.api -Dversion=0.9.1 -Dpackaging=jar -Dsources="./lib/0.9.1/starfarer.api.zip" -DgeneratePom=true
