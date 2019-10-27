@@ -20,17 +20,12 @@ import com.fs.starfarer.api.util.WeightedRandomPicker;
 import org.apache.log4j.Logger;
 
 class BuildableStationGenerator extends BaseThemeGenerator {
+
 	public static int MIN_STATIONS_OF_TYPE = Global.getSettings().getInt("minBuildableStationsOfType");
 	public static int MAX_STATIONS_OF_TYPE = Global.getSettings().getInt("maxBuildableStationsOfType");
 	public static float STATION_CLEARANCE = Global.getSettings().getFloat("buildableStationClearance");
 
 	public static Logger logger = Global.getLogger(BuildableStationGenerator.class);
-
-	public static class StationType {
-		public static String Commercial = "commercial_station_location";
-		public static String Mining = "mining_station_location";
-		public static String Research = "research_station_location";
-	}
 
 	List<StarSystemData> buildableStationSystems = new ArrayList<StarSystemData>();
 
@@ -154,4 +149,5 @@ class BuildableStationGenerator extends BaseThemeGenerator {
 			"commercial locations", StationType.Commercial,
 			system, data, min, max, null);
 	}
+
 }

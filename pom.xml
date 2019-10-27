@@ -53,17 +53,17 @@
       <artifactId>xstream</artifactId>
       <version>1.4.11.1</version>
       <scope>compile</scope>
-  </dependency>
-    <dependency>
-      <groupId>org.lwjgl.lwjgl</groupId>
-      <artifactId>lwjgl_util</artifactId>
-      <version>2.9.3</version>
-  </dependency>
+    </dependency>
+      <dependency>
+        <groupId>org.lwjgl.lwjgl</groupId>
+        <artifactId>lwjgl_util</artifactId>
+        <version>2.9.3</version>
+    </dependency>
   </dependencies>
 
   <build>
-    <sourceDirectory>src</sourceDirectory>
     <directory>build</directory>
+    <sourceDirectory>src/main/java</sourceDirectory>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->

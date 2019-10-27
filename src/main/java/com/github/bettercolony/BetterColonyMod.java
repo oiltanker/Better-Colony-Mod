@@ -18,6 +18,7 @@ import com.fs.starfarer.api.impl.campaign.procgen.themes.SectorThemeGenerator;
 import com.fs.starfarer.api.impl.campaign.procgen.themes.ThemeGenContext;
 
 public class BetterColonyMod extends BaseModPlugin {
+
     public static String VERSION = "1.0.0";
 
     public static float[] USE_RATE = { 0.1464f, 0.1357f, 0.1250f, 0.1143f, 0.1036f, 0.0929f, 0.0821f, 0.0714f, 0.0607f, 0.0500f };
@@ -77,4 +78,5 @@ public class BetterColonyMod extends BaseModPlugin {
             }
         }
     }
+
 }

@@ -1,0 +1,4 @@
+id,type,text1,text2,text3,notes
+mining_station_location,CUSTOM,This location is sutable for orbital mining operations. An orbital mining station can be constructed here.,,,
+research_station_location,CUSTOM,This location is sutable for research purposes. Can used for probes or research stations.,,,
+commercial_station_location,CUSTOM,A general location suitable for constructing a general for-profit space station.,,,
