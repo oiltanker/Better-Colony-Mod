@@ -7,7 +7,9 @@ import com.fs.starfarer.api.campaign.StarSystemAPI;
 import com.fs.starfarer.api.campaign.rules.MemoryAPI;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import com.fs.starfarer.api.BaseModPlugin;
@@ -42,12 +44,31 @@ public class BetterColonyMod extends BaseModPlugin {
         if (newGame) {
             memory.set("$better_colony_mod", true);
             memory.set("$better_colony_mod.version", VERSION);
+            Global.getSector().registerPlugin(new BuildingCampaignPlugin());
+            memory.set("$better_colony_mod.registrations", "com.github.bettercolony.BuildingCampaignPlugin");
         } else {
             Object genObj = memory.get("$better_colony_mod");
             Object verObj = memory.get("$better_colony_mod.version");
+            Object regObj = memory.get("$better_colony_mod.registrations");
             boolean already_generated = (genObj != null) ? (boolean) genObj : false;
             String generated_version = (verObj != null) ? (String) verObj : null;
+            List<String> registrations = (regObj != null) ?
+                Arrays.asList(((String) regObj).split(",")) : new ArrayList<String>();
 
+            // Versioning
+            if (!VERSION.equals(generated_version)) {
+                // TODO: Implement support for different save versions
+                memory.set("$better_colony_mod.version", VERSION);
+            }
+
+            // Plugin registration
+            if (!registrations.contains("com.github.bettercolony.BuildingCampaignPlugin")) {
+                Global.getSector().registerPlugin(new BuildingCampaignPlugin());
+                registrations.add("com.github.bettercolony.BuildingCampaignPlugin");
+            }
+            memory.set("$better_colony_mod.registrations", String.join(",", registrations));
+
+            // Re-generation
             if (!already_generated) {
                 // Prepare context
                 ThemeGenContext context = new ThemeGenContext();
@@ -69,11 +90,6 @@ public class BetterColonyMod extends BaseModPlugin {
 
                 // set already generated
                 memory.set("$better_colony_mod", true);
-                memory.set("$better_colony_mod.version", VERSION);
-            }
-
-            if (!VERSION.equals(generated_version)) {
-                // TODO: Implement support for different save versions
                 memory.set("$better_colony_mod.version", VERSION);
             }
         }
