@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.Callable;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.PlanetAPI;
@@ -25,7 +24,7 @@ class BuildableStationGenerator extends BaseThemeGenerator {
 	public static int MAX_STATIONS_OF_TYPE = Global.getSettings().getInt("maxBuildableStationsOfType");
 	public static float STATION_CLEARANCE = Global.getSettings().getFloat("buildableStationClearance");
 
-	public static Logger logger = Global.getLogger(BetterColonyMod.class);
+	public static Logger logger = Global.getLogger(BuildableStationGenerator.class);
 
 	public static class StationType {
 		public static String Commercial = "commercial_station_location";
@@ -102,34 +101,19 @@ class BuildableStationGenerator extends BaseThemeGenerator {
 
 	public void addBuildableLocations(
 		String addMsg, String type,
-		final StarSystemAPI system, StarSystemData data, int min, int max
+		StarSystemAPI system, StarSystemData data, int min, int max,
+		LinkedHashMap<LocationType, Float> weights
 	) {
 		int num = min + random.nextInt(max - min + 1);
 		if (DEBUG) System.out.println("    Adding " + num + " " + addMsg);
 		for (int i = 0; i < num; i++) {
-			EntityLocation loc = createLocationAtRandomGap(random, system.getStar(), STATION_CLEARANCE);
-			
-			if (loc != null) {
-				AddedEntity added = addNonSalvageEntity(system, loc, type, Factions.NEUTRAL);
-				if (added != null) {
-					data.alreadyUsed.add(added.entity);
-					data.generated.add(added);
-					BaseThemeGenerator.convertOrbitPointingDown(added.entity);
-				}
+			EntityLocation loc = null;
+			if (weights != null) {
+				WeightedRandomPicker<EntityLocation> locs = getLocations(random, data.system, data.alreadyUsed, STATION_CLEARANCE, weights);
+				loc = locs.pick();
+			} else {
+				loc = createLocationAtRandomGap(random, system.getStar(), STATION_CLEARANCE);
 			}
-		}
-	}
-
-	public void addBuildableLocations(
-		LinkedHashMap<LocationType, Float> weights, String addMsg, String type,
-		StarSystemAPI system, StarSystemData data, int min, int max
-	) {
-		int num = min + random.nextInt(max - min + 1);
-		if (DEBUG) System.out.println("    Adding " + num + " " + addMsg);
-		for (int i = 0; i < num; i++) {
-			
-			WeightedRandomPicker<EntityLocation> locs = getLocations(random, data.system, data.alreadyUsed, STATION_CLEARANCE, weights);
-			EntityLocation loc = locs.pick();
 			
 			if (loc != null) {
 				AddedEntity added = addNonSalvageEntity(system, loc, type, Factions.NEUTRAL);
@@ -150,8 +134,8 @@ class BuildableStationGenerator extends BaseThemeGenerator {
 		weights.put(LocationType.IN_SMALL_NEBULA, 10f);
 
 		addBuildableLocations(
-			weights, "mining locations", StationType.Mining,
-			system, data, min, max);
+			"mining locations", StationType.Mining,
+			system, data, min, max, weights);
 	}
 
 	public void addResearchLocations(StarSystemAPI system, StarSystemData data, int min, int max) {
@@ -161,13 +145,13 @@ class BuildableStationGenerator extends BaseThemeGenerator {
 		weights.put(LocationType.NEAR_STAR, 5f);
 
 		addBuildableLocations(
-			weights, "research locations", StationType.Research,
-			system, data, min, max);
+			"research locations", StationType.Research,
+			system, data, min, max, weights);
 	}
 
 	public void addCommercialLocations(StarSystemAPI system, StarSystemData data, int min, int max) {
 		addBuildableLocations(
 			"commercial locations", StationType.Commercial,
-			system, data, min, max);
+			system, data, min, max, null);
 	}
 }
