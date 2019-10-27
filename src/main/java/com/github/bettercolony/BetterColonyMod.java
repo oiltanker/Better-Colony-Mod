@@ -30,7 +30,7 @@ public class BetterColonyMod extends BaseModPlugin {
         super.onApplicationLoad();
         CoreImmigrationPluginImpl.INCENTIVE_USE_RATE = (float[]) USE_RATE.clone();
         PopulationAndInfrastructure.MAX_IND = (int[]) MAX_IND.clone();
-        SectorThemeGenerator.generators.add(new BuildableStaionGenerator());
+        SectorThemeGenerator.generators.add(new BuildableStationGenerator());
     }
 
     @Override
@@ -63,7 +63,7 @@ public class BetterColonyMod extends BaseModPlugin {
                 context.constellations = new ArrayList<Constellation>(c);
 
                 // generate
-                BuildableStaionGenerator generator = new BuildableStaionGenerator();
+                BuildableStationGenerator generator = new BuildableStationGenerator();
                 generator.generateForSector(context, 0f);
 
                 // set already generated

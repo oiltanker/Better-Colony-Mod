@@ -1,5 +1,5 @@
 {
-    "minBuildableStationsOfType": 1,
-    "maxBuildableStationsOfType": 3,
-    "buildableStationClearance": 15000.0
+    "minBuildableStationsOfType": 2,
+    "maxBuildableStationsOfType": 5,
+    "buildableStationClearance": 500.0
 }
