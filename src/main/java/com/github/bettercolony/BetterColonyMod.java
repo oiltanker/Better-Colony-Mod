@@ -66,7 +66,9 @@ public class BetterColonyMod extends BaseModPlugin {
                 Global.getSector().registerPlugin(new BuildingCampaignPlugin());
                 registrations.add("com.github.bettercolony.BuildingCampaignPlugin");
             }
-            memory.set("$better_colony_mod.registrations", String.join(",", registrations));
+            if (registrations.size() > 0) {
+                memory.set("$better_colony_mod.registrations", Utils.strJoin(",", registrations));
+            }
 
             // Re-generation
             if (!already_generated) {

@@ -24,7 +24,7 @@ public class BuildingCampaignPlugin extends BaseCampaignPlugin {
             interactionTarget.getTags().contains(StationType.Commercial)
         ) {
 			return new PluginPick(
-                new BuildingInteractionDialogPlugin(interactionTarget),
+                new BuildingInteractionDialogPlugin(),
                 PickPriority.MOD_GENERAL);
 		}
 		return null;
