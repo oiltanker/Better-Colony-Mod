@@ -1,5 +1,37 @@
 {
     "minBuildableStationsOfType": 2,
     "maxBuildableStationsOfType": 5,
-    "buildableStationClearance": 500.0
+    "buildableStationClearance": 500.0,
+    "buildableMiningStation": {
+        "cost": {
+            "supplies": 100,
+            "metals": 250,
+            "heavy_machinery": 30,
+            "fuel": 50
+        }
+    },
+    "buildableResearchProbe": {
+        "cost": {
+            "supplies": 100,
+            "metals": 250,
+            "heavy_machinery": 30,
+            "fuel": 50
+        }
+    },
+    "buildableResearchStation": {
+        "cost": {
+            "supplies": 100,
+            "metals": 250,
+            "heavy_machinery": 30,
+            "fuel": 50
+        }
+    },
+    "buildableCommercialStation": {
+        "cost": {
+            "supplies": 100,
+            "metals": 250,
+            "heavy_machinery": 30,
+            "fuel": 50
+        }
+    }
 }
