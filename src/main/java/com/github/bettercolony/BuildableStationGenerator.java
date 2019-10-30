@@ -16,14 +16,11 @@ import com.fs.starfarer.api.impl.campaign.procgen.themes.BaseThemeGenerator;
 import com.fs.starfarer.api.impl.campaign.procgen.themes.ThemeGenContext;
 import com.fs.starfarer.api.impl.campaign.procgen.themes.Themes;
 import com.fs.starfarer.api.util.WeightedRandomPicker;
+import com.github.bettercolony.config.Stations;
 
 import org.apache.log4j.Logger;
 
 class BuildableStationGenerator extends BaseThemeGenerator {
-
-	public static int MIN_STATIONS_OF_TYPE = Global.getSettings().getInt("minBuildableStationsOfType");
-	public static int MAX_STATIONS_OF_TYPE = Global.getSettings().getInt("maxBuildableStationsOfType");
-	public static float STATION_CLEARANCE = Global.getSettings().getFloat("buildableStationClearance");
 
 	public static Logger logger = Global.getLogger(BuildableStationGenerator.class);
 
@@ -54,7 +51,7 @@ class BuildableStationGenerator extends BaseThemeGenerator {
 				for (SectorEntityToken stableLocation : system.getEntitiesWithTag("stable_location"))
 					data.alreadyUsed.add(stableLocation);
 
-				addBuildableLocations(system, data, MIN_STATIONS_OF_TYPE, MAX_STATIONS_OF_TYPE);
+				addBuildableLocations(system, data, Stations.MIN_STATIONS_OF_TYPE, Stations.MAX_STATIONS_OF_TYPE);
 				buildableStationSystems.add(data);
 			}
 		}
@@ -104,14 +101,16 @@ class BuildableStationGenerator extends BaseThemeGenerator {
 		for (int i = 0; i < num; i++) {
 			EntityLocation loc = null;
 			if (weights != null) {
-				WeightedRandomPicker<EntityLocation> locs = getLocations(random, data.system, data.alreadyUsed, STATION_CLEARANCE, weights);
+				WeightedRandomPicker<EntityLocation> locs = getLocations(
+					random, data.system, data.alreadyUsed, Stations.STATION_CLEARANCE, weights);
 				loc = locs.pick();
 			} else {
-				loc = createLocationAtRandomGap(random, system.getStar(), STATION_CLEARANCE);
+				loc = createLocationAtRandomGap(random, system.getStar(), Stations.STATION_CLEARANCE);
 			}
 			
 			if (loc != null) {
 				AddedEntity added = addNonSalvageEntity(system, loc, type, Factions.NEUTRAL);
+				added.entity.getMemory().set("$entityLocation", loc);
 				if (added != null) {
 					data.alreadyUsed.add(added.entity);
 					data.generated.add(added);
@@ -129,7 +128,7 @@ class BuildableStationGenerator extends BaseThemeGenerator {
 		weights.put(LocationType.IN_SMALL_NEBULA, 10f);
 
 		addBuildableLocations(
-			"mining locations", StationType.Mining,
+			"mining locations", Stations.MINING.locationType,
 			system, data, min, max, weights);
 	}
 
@@ -140,13 +139,13 @@ class BuildableStationGenerator extends BaseThemeGenerator {
 		weights.put(LocationType.NEAR_STAR, 5f);
 
 		addBuildableLocations(
-			"research locations", StationType.Research,
+			"research locations", Stations.RESEARCH.locationType,
 			system, data, min, max, weights);
 	}
 
 	public void addCommercialLocations(StarSystemAPI system, StarSystemData data, int min, int max) {
 		addBuildableLocations(
-			"commercial locations", StationType.Commercial,
+			"commercial locations", Stations.COMMERCIAL.locationType,
 			system, data, min, max, null);
 	}
 

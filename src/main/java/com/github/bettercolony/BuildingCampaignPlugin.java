@@ -1,8 +1,11 @@
 package com.github.bettercolony;
 
+import java.util.Collection;
+
 import com.fs.starfarer.api.PluginPick;
 import com.fs.starfarer.api.campaign.BaseCampaignPlugin;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
+import com.github.bettercolony.config.Stations;
 
 public class BuildingCampaignPlugin extends BaseCampaignPlugin {
 
@@ -17,11 +20,12 @@ public class BuildingCampaignPlugin extends BaseCampaignPlugin {
 	@SuppressWarnings("unchecked")
 	public PluginPick pickInteractionDialogPlugin(SectorEntityToken interactionTarget) {
 		// if the player is attempting to interact with an asteroid, 
-        // return our custom dialog plugin.
+		// return our custom dialog plugin.
+		Collection<String> tags = interactionTarget.getTags();
 		if (
-            interactionTarget.getTags().contains(StationType.Mining) ||
-            interactionTarget.getTags().contains(StationType.Research) ||
-            interactionTarget.getTags().contains(StationType.Commercial)
+            tags.contains(Stations.MINING.locationType) ||
+            tags.contains(Stations.RESEARCH.locationType) ||
+            tags.contains(Stations.COMMERCIAL.locationType)
         ) {
 			return new PluginPick(
                 new BuildingInteractionDialogPlugin(),

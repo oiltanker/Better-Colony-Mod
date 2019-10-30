@@ -43,5 +43,17 @@
 		"iconHeight":30,
 		"tags":["has_interaction_dialog", "commercial_station_location"],
 		"layers":[STATIONS],
-	}
+	},
+	"makeshift_mining_station":{
+		"baseId":"orbital_habitat",
+		"defaultName":"Makeshift mining station",
+		"nameInText":"makeshift mining station",
+		"shortName":"makeshift mining station",
+		"aOrAn":"a",
+		"isOrAre":"is",
+		"customDescriptionId":"makeshift_mining_station",
+		"interactionImage":"graphics/illustrations/orbital_construction.jpg",
+		"tags":["has_interaction_dialog", "neutrino", "station", "use_station_visual"],
+		"sprite":"graphics/stations/station_mining00.png",
+	},
 }
