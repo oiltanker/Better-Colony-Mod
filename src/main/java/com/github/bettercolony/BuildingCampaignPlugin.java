@@ -4,8 +4,10 @@ import java.util.Collection;
 
 import com.fs.starfarer.api.PluginPick;
 import com.fs.starfarer.api.campaign.BaseCampaignPlugin;
+import com.fs.starfarer.api.campaign.InteractionDialogPlugin;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.github.bettercolony.config.Stations;
+import com.github.bettercolony.building.*;
 
 public class BuildingCampaignPlugin extends BaseCampaignPlugin {
 
@@ -17,18 +19,24 @@ public class BuildingCampaignPlugin extends BaseCampaignPlugin {
 		return false;
 	}
 
-	@SuppressWarnings("unchecked")
-	public PluginPick pickInteractionDialogPlugin(SectorEntityToken interactionTarget) {
-		// if the player is attempting to interact with an asteroid, 
-		// return our custom dialog plugin.
+	public PluginPick<InteractionDialogPlugin> pickInteractionDialogPlugin(SectorEntityToken interactionTarget) {
 		Collection<String> tags = interactionTarget.getTags();
-		if (
-            tags.contains(Stations.MINING.locationType) ||
-            tags.contains(Stations.RESEARCH.locationType) ||
-            tags.contains(Stations.COMMERCIAL.locationType)
-        ) {
-			return new PluginPick(
-                new BuildingInteractionDialogPlugin(),
+		if (tags.contains(Stations.MINING.locationType)) {
+			return new PluginPick<InteractionDialogPlugin>(
+                new MiningBuildingDialogPlugin(),
+                PickPriority.MOD_GENERAL);
+		} else if (tags.contains(Stations.RESEARCH.locationType)) {
+			return new PluginPick<InteractionDialogPlugin>(
+                new MiningBuildingDialogPlugin(),
+                PickPriority.MOD_GENERAL);
+		} else if (
+			interactionTarget.getCustomEntityType() == Stations.PROBE.type ||
+			interactionTarget.getCustomEntityType() == Stations.MINING.type ||
+			interactionTarget.getCustomEntityType() == Stations.RESEARCH.type ||
+			interactionTarget.getCustomEntityType() == Stations.COMMERCIAL.type
+		) {
+			return new PluginPick<InteractionDialogPlugin>(
+                new ColonizationDialogPlugin(),
                 PickPriority.MOD_GENERAL);
 		}
 		return null;
