@@ -27,9 +27,13 @@ public class BuildingCampaignPlugin extends BaseCampaignPlugin {
                 PickPriority.MOD_GENERAL);
 		} else if (tags.contains(Stations.RESEARCH.locationType)) {
 			return new PluginPick<InteractionDialogPlugin>(
-                new MiningBuildingDialogPlugin(),
+                null, // TODO: New plugin
                 PickPriority.MOD_GENERAL);
-		} else if (
+		} else if (tags.contains(Stations.COMMERCIAL.locationType)) {
+			return new PluginPick<InteractionDialogPlugin>(
+                null, // TODO: New plugin
+                PickPriority.MOD_GENERAL);
+		}  else if (
 			interactionTarget.getCustomEntityType() == Stations.PROBE.type ||
 			interactionTarget.getCustomEntityType() == Stations.MINING.type ||
 			interactionTarget.getCustomEntityType() == Stations.RESEARCH.type ||
