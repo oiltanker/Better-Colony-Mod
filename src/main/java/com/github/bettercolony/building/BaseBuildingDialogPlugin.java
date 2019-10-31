@@ -3,6 +3,7 @@ package com.github.bettercolony.building;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.awt.Color;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.ui.Alignment;
@@ -27,7 +28,12 @@ import com.fs.starfarer.api.campaign.rules.MemoryAPI;
 import com.fs.starfarer.api.combat.EngagementResultAPI;
 import com.fs.starfarer.api.impl.campaign.rulecmd.salvage.SalvageEntity;
 
-public abstract class BaseBuildingDialogPlugin<Option extends BaseOption> implements InteractionDialogPlugin {
+public abstract class BaseBuildingDialogPlugin<TOption extends BaseBuildingDialogPlugin.BaseOption> implements InteractionDialogPlugin {
+
+    public static class BaseOption {
+        public static Option INIT = new Option();
+        public static Option LEAVE = new Option();
+    }
     
     protected static Logger logger = Global.getLogger(BaseBuildingDialogPlugin.class);
 
@@ -54,13 +60,15 @@ public abstract class BaseBuildingDialogPlugin<Option extends BaseOption> implem
         
         visual.setVisualFade(0.25f, 0.25f);
 
-        dialog.setOptionOnEscape("Leave", Option.LEAVE);
-		optionSelected(null, Option.INIT);
+        dialog.setOptionOnEscape("Leave", TOption.LEAVE);
+        onInit();
+
+		optionSelected(null, TOption.INIT);
     }
 
     @Override
     public void optionSelected(String optionText, Object optionData) {
-        if (optionData == null || !(optionData instanceof BaseOption)) return;
+        if (optionData == null) return;
 		
         Option option = (Option) optionData;
         options.clearOptions();
@@ -69,20 +77,23 @@ public abstract class BaseBuildingDialogPlugin<Option extends BaseOption> implem
 			textPanel.addParagraph(optionText, Global.getSettings().getColor("buttonText"));
         }
         
-        if (option == Option.LEAVE) leaveDialog();
+        if (option == TOption.LEAVE) leaveDialog();
         else optionSelectedImpl(option, optionText);
     }
 
     public abstract void optionSelectedImpl(Option option, String optionText);
+    public abstract void onInit();
+    public abstract void onLeave();
 
     public void leaveDialog() {
         Global.getSector().setPaused(false);
         dialog.dismiss();
+        onLeave();
     }
 
     public void addText(String text) {
-		textPanel.addParagraph(text);
-	}
+        textPanel.addParagraph(text);
+    }
 	
 	public void appendText(String text) {
 		textPanel.appendToLastParagraph(" " + text);
@@ -92,20 +103,20 @@ public abstract class BaseBuildingDialogPlugin<Option extends BaseOption> implem
         textPanel.clear();
     }
 
-    public boolean showCost(String title, List<Expense> cost) {
+    public boolean showCost(String title, List<Expense> cost, boolean border) {
         ResourceCostPanelAPI panel = textPanel.addCostPanel(
             title, SalvageEntity.COST_HEIGHT,
             playerFaction.getBaseUIColor(), playerFaction.getDarkUIColor());
 
-        panel.setWithBorder(false);
-        panel.setAlignment(Alignment.LMID);
+        panel.setWithBorder(border);
+        panel.setAlignment(Alignment.MID);
         panel.setNumberOnlyMode(true);
 
         boolean allPresent = true;
         CargoAPI cargo = playerFleet.getCargo();
         for (Expense expense: cost) {
             float inCargo = cargo.getCommodityQuantity(expense.id);
-            if (inCargo > expense.amount) {
+            if (inCargo >= expense.amount) {
                 panel.addCost(expense.id, String.format("%d (%d)", expense.amount, (int) inCargo));
             } else {
                 allPresent = false;

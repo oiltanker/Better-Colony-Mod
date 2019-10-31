@@ -33,11 +33,13 @@ public class BuildingCampaignPlugin extends BaseCampaignPlugin {
 			return new PluginPick<InteractionDialogPlugin>(
                 null, // TODO: New plugin
                 PickPriority.MOD_GENERAL);
-		}  else if (
-			interactionTarget.getCustomEntityType() == Stations.PROBE.type ||
-			interactionTarget.getCustomEntityType() == Stations.MINING.type ||
-			interactionTarget.getCustomEntityType() == Stations.RESEARCH.type ||
-			interactionTarget.getCustomEntityType() == Stations.COMMERCIAL.type
+		} else if (
+			!interactionTarget.getTags().contains("colonized") && (
+				interactionTarget.getCustomEntityType() == Stations.PROBE.type ||
+				interactionTarget.getCustomEntityType() == Stations.MINING.type ||
+				interactionTarget.getCustomEntityType() == Stations.RESEARCH.type ||
+				interactionTarget.getCustomEntityType() == Stations.COMMERCIAL.type
+			)
 		) {
 			return new PluginPick<InteractionDialogPlugin>(
                 new ColonizationDialogPlugin(),

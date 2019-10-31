@@ -6,13 +6,13 @@ import com.github.bettercolony.config.Stations;
 import com.fs.starfarer.api.loading.Description;
 
 public class MiningBuildingDialogPlugin extends BaseBuildingDialogPlugin<MiningBuildingDialogPlugin.MiningOption> {
-    public static class MiningOption extends BaseOption {
-		public static MiningOption BUILD_STATION = new MiningOption();
-        public static MiningOption CONFIRM_BUILD = new MiningOption();
+    public static class MiningOption extends BaseBuildingDialogPlugin.BaseOption {
+		public static Option BUILD_STATION = new Option();
+        public static Option CONFIRM_BUILD = new Option();
     }
 
     @Override
-    public void optionSelectedImpl(MiningOption option, String optionText) {
+    public void optionSelectedImpl(Option option, String optionText) {
         if (option == MiningOption.INIT) {
             if (target.getCustomDescriptionId() != null) {
                 addText(Global.getSettings().getDescription(
@@ -31,7 +31,7 @@ public class MiningBuildingDialogPlugin extends BaseBuildingDialogPlugin<MiningB
             options.addOption("Proceed with building the station", MiningOption.CONFIRM_BUILD);
             options.addOption("Never mind", MiningOption.INIT);
 
-            if (!showCost("Mining station construction cost", Stations.MINING.cost))
+            if (!showCost("Resources: required (available)", Stations.MINING.cost, false))
                 options.setEnabled(MiningOption.CONFIRM_BUILD, false);
         } else if (option == MiningOption.CONFIRM_BUILD) {
             chargeCost(Stations.MINING.cost);
@@ -39,4 +39,10 @@ public class MiningBuildingDialogPlugin extends BaseBuildingDialogPlugin<MiningB
             options.addOption("Continue", MiningOption.LEAVE);
         }
     }
+
+    @Override
+    public void onInit() {}
+
+    @Override
+    public void onLeave() {}
 }

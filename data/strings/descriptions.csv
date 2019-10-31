@@ -2,4 +2,6 @@ id,type,text1,text2,text3,notes
 mining_station_location,CUSTOM,This location is suitable for orbital mining operations. An orbital mining station can be constructed here.,,,
 research_station_location,CUSTOM,This location is suitable for research purposes. Can used for probes or research stations.,,,
 commercial_station_location,CUSTOM,A general location suitable for constructing a general for-profit space station.,,,
-makeshift_mining_station,CUSTOM,"Fully functional, but uninhabited makeshift mining station. Roaming around in the orbit, waiting to be utilized.",,,
+makeshift_mining_station,CUSTOM,"Makeshift mining station. Due to modular design has capability to host spaceport, industries and other structures, including expandable storage and stockpiles.",,,
+makeshift_research_station,CUSTOM,"Makeshift research station. Due to modular design has capability to host spaceport, industries and other structures, including expandable storage and stockpiles.",,,
+makeshift_commercial_station,CUSTOM,"Makeshift commercial station. Due to modular design has capability to host spaceport, industries and other structures, including expandable storage and stockpiles.",,,

@@ -2,6 +2,11 @@
     "minBuildableStationsOfType": 2,
     "maxBuildableStationsOfType": 5,
     "buildableStationClearance": 500.0,
+    "colonizationCost": {
+        "crew": 0, # 1000
+        "heavy_machinery": 0, # 100
+        "supplies": 0, # 200
+    },
     "buildableProbe": {
         "cost": {
             "supplies": 75,
