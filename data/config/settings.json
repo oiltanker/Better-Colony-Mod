@@ -9,9 +9,9 @@
     },
     "buildableProbe": {
         "cost": {
-            "supplies": 75,
-            "metals": 100,
-            "heavy_machinery": 20,
+            "supplies": 100,
+            "metals": 500,
+            "heavy_machinery": 50,
             "fuel": 25
         }
     },
@@ -25,18 +25,21 @@
     },
     "buildableResearchStation": {
         "cost": {
-            "supplies": 100,
-            "metals": 250,
-            "heavy_machinery": 30,
-            "fuel": 50
+            "supplies": 250,
+            "metals": 2500,
+            "heavy_machinery": 100,
+            "fuel": 125
         }
     },
     "buildableCommercialStation": {
         "cost": {
-            "supplies": 100,
-            "metals": 250,
-            "heavy_machinery": 30,
-            "fuel": 50
+            "supplies": 250,
+            "metals": 2500,
+            "heavy_machinery": 100,
+            "fuel": 125
         }
-    }
+    },
+    "ruleCommandPackages":[
+        "com.github.bettercolony.interactions"
+    ]
 }

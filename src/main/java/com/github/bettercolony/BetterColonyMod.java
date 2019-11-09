@@ -18,6 +18,8 @@ import com.fs.starfarer.api.impl.campaign.econ.impl.PopulationAndInfrastructure;
 import com.fs.starfarer.api.impl.campaign.procgen.Constellation;
 import com.fs.starfarer.api.impl.campaign.procgen.themes.SectorThemeGenerator;
 import com.fs.starfarer.api.impl.campaign.procgen.themes.ThemeGenContext;
+import com.github.bettercolony.interactions.DefaultingInteractionDialogPlugin;
+import com.github.bettercolony.interactions.building.ColonizationInteractionDialogListener;
 
 public class BetterColonyMod extends BaseModPlugin {
 
@@ -34,6 +36,7 @@ public class BetterColonyMod extends BaseModPlugin {
         CoreImmigrationPluginImpl.INCENTIVE_USE_RATE = (float[]) USE_RATE.clone();
         PopulationAndInfrastructure.MAX_IND = (int[]) MAX_IND.clone();
         SectorThemeGenerator.generators.add(new BuildableStationGenerator());
+        DefaultingInteractionDialogPlugin.register(ColonizationInteractionDialogListener.class);
     }
 
     @Override
