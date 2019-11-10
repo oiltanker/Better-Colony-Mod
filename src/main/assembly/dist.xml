@@ -18,7 +18,7 @@
                 <include>LICENSE</include>
                 <include>mod_info.json</include>
             </includes>
-            <outputDirectory></outputDirectory>
+            <outputDirectory>Colonizer</outputDirectory>
         </fileSet>
     </fileSets>
 </assembly>
