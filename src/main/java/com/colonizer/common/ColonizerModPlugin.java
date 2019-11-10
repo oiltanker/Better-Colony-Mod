@@ -45,6 +45,11 @@ public class ColonizerModPlugin extends BaseModPlugin {
         super.onGameLoad(newGame);
 
         MemoryAPI memory = Global.getSector().getMemory();
+        addStationPoints(newGame, memory);
+        addNomadAbility();
+    }
+
+    public void addStationPoints(boolean newGame, MemoryAPI memory) {
         if (newGame) {
             memory.set("$better_colony_mod", true);
             memory.set("$better_colony_mod.version", VERSION);
@@ -98,6 +103,12 @@ public class ColonizerModPlugin extends BaseModPlugin {
                 memory.set("$better_colony_mod", true);
                 memory.set("$better_colony_mod.version", VERSION);
             }
+        }
+    }
+
+    public void addNomadAbility() {
+        if (!Global.getSector().getPlayerFleet().hasAbility("construct_nomad")) {
+            Global.getSector().getCharacterData().addAbility("construct_nomad");
         }
     }
 

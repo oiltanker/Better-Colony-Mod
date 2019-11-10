@@ -1,0 +1,2 @@
+name,id,type,tags,activationDays,activationCooldown,durationDays,deactivationDays,deactivationCooldown,unlockedAtStart,defaultForAIFleet,musicSuppression,uiOn,uiOff,uiLoop,worldOn,worldOff,worldLoop,icon,plugin,ai,desc,sortOrder
+Nomad construction,construct_nomad,DURATION,"",0,,0,0,1,TRUE,FALSE,,,,,,,,graphics/icons/markets/orbital_station.png,com.colonizer.nomad.ConstructNomadAbility,,"Construct a nomad class city-ship.",5000
