@@ -29,10 +29,6 @@ public class BuildingCampaignPlugin extends BaseCampaignPlugin {
 			return new PluginPick<InteractionDialogPlugin>(
                 new MiningBuildingDialogPlugin(),
                 PickPriority.MOD_GENERAL);
-		} else if (interactionTarget.hasTag(Stations.RESEARCH.locationType)) {
-			return new PluginPick<InteractionDialogPlugin>(
-                null, // TODO: New plugin
-                PickPriority.MOD_GENERAL);
 		} else if (interactionTarget.hasTag(Stations.COMMERCIAL.locationType)) {
 			return new PluginPick<InteractionDialogPlugin>(
                 new CommercialBuildingDialogPlugin(), // TODO: New plugin

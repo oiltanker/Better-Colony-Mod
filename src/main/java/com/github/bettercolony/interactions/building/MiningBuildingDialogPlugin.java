@@ -48,7 +48,7 @@ public class MiningBuildingDialogPlugin extends BaseInteractionDialogPlugin<Mini
             options.addOption("Proceed with building the station", MiningOption.CONFIRM_BUILD);
             options.addOption("Never mind", MiningOption.INIT);
 
-            if (!showCost("Resources: required (available)", Stations.MINING.cost, false))
+            if (!showCost("Resources: required (available)", Stations.MINING.cost, false) && !Global.getSettings().isDevMode())
                 options.setEnabled(MiningOption.CONFIRM_BUILD, false);
         } else if (option == MiningOption.CONFIRM_BUILD) {
             chargeCost(Stations.MINING.cost);
@@ -64,7 +64,7 @@ public class MiningBuildingDialogPlugin extends BaseInteractionDialogPlugin<Mini
             market.setSize(0);
             market.addCondition(Conditions.ABANDONED_STATION);
             market.addCondition(Conditions.ORE_MODERATE);
-            if (location.isNebula()) market.addCondition(Conditions.RARE_ORE_SPARSE); // TODO: does not work
+            market.addCondition(Conditions.RARE_ORE_SPARSE);
 
             market.addSubmarket(Submarkets.SUBMARKET_STORAGE);
             ((StoragePlugin) market.getSubmarket(Submarkets.SUBMARKET_STORAGE).getPlugin()).setPlayerPaidToUnlock(true);

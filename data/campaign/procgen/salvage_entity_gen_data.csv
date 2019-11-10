@@ -1,9 +1,0 @@
-id,rating,detection_range,type,autoXP,xpDiscover,xpSalvage,tags,drop_value,drop_random,defFaction,defQuality,probDefenders,minStr,maxStr,maxSize,probStation,stationRole
-,,,,,,,,,,,,,,,,,
-makeshift_probe,0,1700,DISCOVERABLE,200,,,buildable_station,"makeshift_probe:10000",,,,,,,,,
-,,,,,,,,,,,,,,,,,
-makeshift_mining_station,0,1700,DISCOVERABLE,200,,,buildable_station,"makeshift_station:50000",,,,,,,,,
-,,,,,,,,,,,,,,,,,
-makeshift_research_station,0,1700,DISCOVERABLE,200,,,buildable_station,"makeshift_station:50000",,,,,,,,,
-,,,,,,,,,,,,,,,,,
-makeshift_commercial_station,0,1700,DISCOVERABLE,200,,,buildable_station,"makeshift_station:50000",,,,,,,,,

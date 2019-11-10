@@ -71,14 +71,8 @@ public class ColonizationInteractionDialogListener extends InteractionDialogList
             return;
         }
 
-        String type = target.getCustomEntityType();
-
         fittingTarget = target.getMarket() != null &&
-            target.getMarket().hasCondition(Conditions.ABANDONED_STATION) && (
-                type == Stations.PROBE.type || type == Stations.MINING.type ||
-                type == Stations.RESEARCH.type || type == Stations.COMMERCIAL.type
-            );
-        isProbe = type == Stations.PROBE.type;
+            target.getMarket().hasCondition(Conditions.ABANDONED_STATION);
 
         if (fittingTarget && !isProbe) {
             market = createMarketFor(target, target.getMarket());
@@ -88,7 +82,7 @@ public class ColonizationInteractionDialogListener extends InteractionDialogList
 
             hazard_rating_percent = (int) (market.getHazardValue() * 100f);
             StatBonus access = market.getAccessibilityMod();
-            accessability_percent = (int) (access.getFlatBonus() * access.getBonusMult() * 100f);
+            accessability_percent = (int) (access.getFlatBonus() * access.getBonusMult() * 100f); // TODO: Does only take spaceport into consideration
 
             market.setFactionId(Factions.NEUTRAL);
             market.reapplyConditions();
@@ -117,7 +111,7 @@ public class ColonizationInteractionDialogListener extends InteractionDialogList
                 options.addOption("Establish a colony", ColonyOption.COLONIZE_CONFIRM);
                 options.addOption("Never mind", ColonyOption.INIT);
     
-                if (!showCost("Resources: required (available)", Stations.COLONIZATION_COST, true))
+                if (!showCost("Resources: required (available)", Stations.COLONIZATION_COST, true) && !Global.getSettings().isDevMode())
                     options.setEnabled(ColonyOption.COLONIZE_CONFIRM, false);
             } else if (optionData.equals(ColonyOption.COLONIZE_CONFIRM)) {
                 options.clearOptions();
@@ -220,12 +214,8 @@ public class ColonizationInteractionDialogListener extends InteractionDialogList
 
     public List<Expense> getCost() {
         String type = target.getCustomEntityType();
-        if (type == Stations.PROBE.type)
-            return Stations.PROBE.cost;
-        else if (type == Stations.MINING.type)
-            return Stations.RESEARCH.cost; // TODO: Change back
-        else if (type == Stations.RESEARCH.type)
-            return Stations.RESEARCH.cost;
+        if (type == Stations.MINING.type)
+            return Stations.MINING.cost;
         else if (type == Stations.COMMERCIAL.type)
             return Stations.COMMERCIAL.cost;
         else
@@ -234,12 +224,8 @@ public class ColonizationInteractionDialogListener extends InteractionDialogList
 
     public String getLocationType() {
         String type = target.getCustomEntityType();
-        if (type == Stations.PROBE.type)
-            return Stations.PROBE.locationType;
-        else if (type == Stations.MINING.type)
+        if (type == Stations.MINING.type)
             return Stations.MINING.locationType;
-        else if (type == Stations.RESEARCH.type)
-            return Stations.RESEARCH.locationType;
         else if (type == Stations.COMMERCIAL.type)
             return Stations.COMMERCIAL.locationType;
         else

@@ -48,7 +48,7 @@ public class CommercialBuildingDialogPlugin extends BaseInteractionDialogPlugin<
             options.addOption("Proceed with building the station", CommercialOption.CONFIRM_BUILD);
             options.addOption("Never mind", CommercialOption.INIT);
 
-            if (!showCost("Resources: required (available)", Stations.COMMERCIAL.cost, false))
+            if (!showCost("Resources: required (available)", Stations.COMMERCIAL.cost, false) && !Global.getSettings().isDevMode())
                 options.setEnabled(CommercialOption.CONFIRM_BUILD, false);
         } else if (option == CommercialOption.CONFIRM_BUILD) {
             chargeCost(Stations.COMMERCIAL.cost);

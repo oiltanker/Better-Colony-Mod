@@ -1,29 +1,13 @@
 {
     "minBuildableStationsOfType": 2,
-    "maxBuildableStationsOfType": 5,
+    "maxBuildableStationsOfType": 4,
     "buildableStationClearance": 500.0,
     "colonizationCost": {
-        "crew": 0, # 1000
-        "heavy_machinery": 0, # 100
-        "supplies": 0, # 200
-    },
-    "buildableProbe": {
-        "cost": {
-            "supplies": 100,
-            "metals": 500,
-            "heavy_machinery": 50,
-            "fuel": 25
-        }
+        "crew": 1000,
+        "heavy_machinery": 100,
+        "supplies": 200
     },
     "buildableMiningStation": {
-        "cost": {
-            "supplies": 0,
-            "metals": 0,
-            "heavy_machinery": 0,
-            "fuel": 0
-        }
-    },
-    "buildableResearchStation": {
         "cost": {
             "supplies": 250,
             "metals": 2500,

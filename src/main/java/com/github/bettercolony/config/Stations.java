@@ -37,8 +37,6 @@ public final class Stations {
 
     public static List<Expense> COLONIZATION_COST = getCost(Global.getSettings().getJSONObject("colonizationCost"));
     
-    public static Station PROBE = new Station("makeshift_probe", "research_station_location", "buildableProbe");
     public static Station MINING = new Station("makeshift_mining_station", "mining_station_location", "buildableMiningStation");
-    public static Station RESEARCH = new Station("makeshift_research_station", "research_station_location", "buildableResearchStation");
     public static Station COMMERCIAL = new Station("makeshift_commercial_station", "commercial_station_location", "buildableCommercialStation");
 }

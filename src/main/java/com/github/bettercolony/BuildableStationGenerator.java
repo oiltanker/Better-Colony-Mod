@@ -59,7 +59,6 @@ class BuildableStationGenerator extends BaseThemeGenerator {
 
 	public void addBuildableLocations(StarSystemAPI system, StarSystemData data, int min, int max) {
 		addMiningLocations(system, data, min, max);
-		addResearchLocations(system, data, min, max);
 		addCommercialLocations(system, data, min, max);
 	}
 
@@ -132,16 +131,16 @@ class BuildableStationGenerator extends BaseThemeGenerator {
 			system, data, min, max, weights);
 	}
 
-	public void addResearchLocations(StarSystemAPI system, StarSystemData data, int min, int max) {
-		LinkedHashMap<LocationType, Float> weights = new LinkedHashMap<LocationType, Float>();
-		weights.put(LocationType.IN_SMALL_NEBULA, 5f);
-		weights.put(LocationType.GAS_GIANT_ORBIT, 10f);
-		weights.put(LocationType.NEAR_STAR, 5f);
+	// public void addResearchLocations(StarSystemAPI system, StarSystemData data, int min, int max) {
+	// 	LinkedHashMap<LocationType, Float> weights = new LinkedHashMap<LocationType, Float>();
+	// 	weights.put(LocationType.IN_SMALL_NEBULA, 5f);
+	// 	weights.put(LocationType.GAS_GIANT_ORBIT, 10f);
+	// 	weights.put(LocationType.NEAR_STAR, 5f);
 
-		addBuildableLocations(
-			"research locations", Stations.RESEARCH.locationType,
-			system, data, min, max, weights);
-	}
+	// 	addBuildableLocations(
+	// 		"research locations", Stations.RESEARCH.locationType,
+	// 		system, data, min, max, weights);
+	// }
 
 	public void addCommercialLocations(StarSystemAPI system, StarSystemData data, int min, int max) {
 		addBuildableLocations(
