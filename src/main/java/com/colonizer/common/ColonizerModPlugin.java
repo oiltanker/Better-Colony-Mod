@@ -22,14 +22,14 @@ import com.colonizer.dialog.DefaultingInteractionDialogPlugin;
 import com.colonizer.stations.BuildableStationGenerator;
 import com.colonizer.stations.dialog.ColonizationInteractionDialogListener;
 
-public class BetterColonyMod extends BaseModPlugin {
+public class ColonizerModPlugin extends BaseModPlugin {
 
     public static String VERSION = "1.0.0";
 
     public static float[] USE_RATE = { 0.1464f, 0.1357f, 0.1250f, 0.1143f, 0.1036f, 0.0929f, 0.0821f, 0.0714f, 0.0607f, 0.0500f };
     public static int[] MAX_IND = { 1, 1, 1, 2, 3, 4, 5, 6, 7, 8 };
 
-    public static Logger logger = Global.getLogger(BetterColonyMod.class);
+    public static Logger logger = Global.getLogger(ColonizerModPlugin.class);
 
     @Override
     public void onApplicationLoad() throws Exception {
