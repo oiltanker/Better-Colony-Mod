@@ -24,6 +24,6 @@
         }
     },
     "ruleCommandPackages":[
-        "com.github.bettercolony.interactions"
+        "com.colonizer.dialog"
     ]
 }

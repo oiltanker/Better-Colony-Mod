@@ -1,4 +1,4 @@
-package com.github.bettercolony;
+package com.colonizer.common;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.PluginPick;
@@ -6,15 +6,15 @@ import com.fs.starfarer.api.campaign.BaseCampaignPlugin;
 import com.fs.starfarer.api.campaign.InteractionDialogPlugin;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.impl.campaign.ids.Tags;
-import com.github.bettercolony.config.Stations;
-import com.github.bettercolony.interactions.DefaultingInteractionDialogPlugin;
-import com.github.bettercolony.interactions.building.*;
+import com.colonizer.config.Stations;
+import com.colonizer.dialog.DefaultingInteractionDialogPlugin;
+import com.colonizer.stations.dialog.*;
 
 import org.apache.log4j.Logger;
 
-public class BuildingCampaignPlugin extends BaseCampaignPlugin {
+public class ColonizerCampaignPlugin extends BaseCampaignPlugin {
 
-	public static Logger logger = Global.getLogger(BuildingCampaignPlugin.class);
+	public static Logger logger = Global.getLogger(ColonizerCampaignPlugin.class);
 
     public String getId() {
 		return "MyCampaignPlugin_unique_id"; // make sure to change this for your mod

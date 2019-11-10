@@ -1,11 +1,11 @@
 {
-    "id": "oiltanker_bettercolony",
-    "name": "BetterColony",
+    "id": "oiltanker_colonizer",
+    "name": "Colonizer",
     "author": "oiltanker",
     "utility": "false",
     "version": "1.0",
     "description": "The mod that seeks to better colony game-play by adding some balancing changes, as well as new buildable stations, structures and industries.",
     "gameVersion": "0.9.1a",
-    "jars": ["jars/BetterColony-1.0.0.jar"],
-	"modPlugin": "com.github.bettercolony.BetterColonyMod"
+    "jars": ["jars/colonizer-1.0.0.jar"],
+	"modPlugin": "com.colonizer.common.BetterColonyMod"
 }

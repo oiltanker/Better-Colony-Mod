@@ -1,4 +1,4 @@
-package com.github.bettercolony.config;
+package com.colonizer.config;
 
 public class Expense {
     public String id;

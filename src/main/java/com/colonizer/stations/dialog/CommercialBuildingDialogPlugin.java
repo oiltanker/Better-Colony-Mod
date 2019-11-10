@@ -1,4 +1,4 @@
-package com.github.bettercolony.interactions.building;
+package com.colonizer.stations.dialog;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.LocationAPI;
@@ -11,10 +11,10 @@ import com.fs.starfarer.api.impl.campaign.ids.Conditions;
 import com.fs.starfarer.api.impl.campaign.ids.Factions;
 import com.fs.starfarer.api.impl.campaign.ids.Submarkets;
 import com.fs.starfarer.api.impl.campaign.submarkets.StoragePlugin;
-import com.github.bettercolony.config.Stations;
-import com.github.bettercolony.interactions.BaseInteractionDialogPlugin;
-import com.github.bettercolony.interactions.DefaultingInteractionDialogPlugin;
-import com.github.bettercolony.interactions.Option;
+import com.colonizer.config.Stations;
+import com.colonizer.dialog.BaseInteractionDialogPlugin;
+import com.colonizer.dialog.DefaultingInteractionDialogPlugin;
+import com.colonizer.dialog.Option;
 
 import org.lwjgl.input.Keyboard;
 

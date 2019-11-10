@@ -1,4 +1,4 @@
-package com.github.bettercolony.interactions.building;
+package com.colonizer.stations.dialog;
 
 import java.awt.Color;
 import java.util.List;
@@ -22,12 +22,12 @@ import com.fs.starfarer.api.impl.campaign.ids.Factions;
 import com.fs.starfarer.api.impl.campaign.ids.Industries;
 import com.fs.starfarer.api.impl.campaign.ids.Submarkets;
 import com.fs.starfarer.api.impl.campaign.submarkets.StoragePlugin;
-import com.github.bettercolony.config.Expense;
-import com.github.bettercolony.config.Stations;
-import com.github.bettercolony.interactions.BaseInteractionDialogPlugin;
-import com.github.bettercolony.interactions.InteractionDialogListener;
-import com.github.bettercolony.interactions.Option;
-import com.github.bettercolony.interactions.Triggers;
+import com.colonizer.config.Expense;
+import com.colonizer.config.Stations;
+import com.colonizer.dialog.BaseInteractionDialogPlugin;
+import com.colonizer.dialog.InteractionDialogListener;
+import com.colonizer.dialog.Option;
+import com.colonizer.dialog.Triggers;
 
 import org.apache.log4j.Logger;
 import org.lwjgl.input.Keyboard;
@@ -170,8 +170,8 @@ public class ColonizationInteractionDialogListener extends InteractionDialogList
                 }
             } else if (optionData.equals(ColonyOption.DECONSTRUCT)) {
                 options.clearOptions();
-                textPanel.addParagraph("Are you sure, you want to brake " + target.getCustomEntitySpec().getNameInText()
-                + " for salvage?");
+                textPanel.addParagraph("Are you sure, you want to brake " +
+                    target.getCustomEntitySpec().getNameInText() + " for salvage?");
                 options.addOption("Proceed", ColonyOption.DECONSTRUCT_CONFIRM);
                 options.addOption("Never mind", ColonyOption.INIT);
             } else if (optionData.equals(ColonyOption.DECONSTRUCT_CONFIRM)) {

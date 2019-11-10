@@ -1,4 +1,4 @@
-package com.github.bettercolony.config;
+package com.colonizer.config;
 
 import java.util.ArrayList;
 import java.util.List;

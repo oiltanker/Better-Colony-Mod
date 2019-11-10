@@ -1,4 +1,4 @@
-package com.github.bettercolony;
+package com.colonizer.common;
 
 import java.util.Collection;
 

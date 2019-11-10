@@ -1,4 +1,4 @@
-package com.github.bettercolony.interactions;
+package com.colonizer.dialog;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;

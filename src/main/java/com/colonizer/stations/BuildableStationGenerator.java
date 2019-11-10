@@ -1,4 +1,4 @@
-package com.github.bettercolony;
+package com.colonizer.stations;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -16,11 +16,11 @@ import com.fs.starfarer.api.impl.campaign.procgen.themes.BaseThemeGenerator;
 import com.fs.starfarer.api.impl.campaign.procgen.themes.ThemeGenContext;
 import com.fs.starfarer.api.impl.campaign.procgen.themes.Themes;
 import com.fs.starfarer.api.util.WeightedRandomPicker;
-import com.github.bettercolony.config.Stations;
+import com.colonizer.config.Stations;
 
 import org.apache.log4j.Logger;
 
-class BuildableStationGenerator extends BaseThemeGenerator {
+public class BuildableStationGenerator extends BaseThemeGenerator {
 
 	public static Logger logger = Global.getLogger(BuildableStationGenerator.class);
 

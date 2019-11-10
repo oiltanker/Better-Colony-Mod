@@ -1,4 +1,4 @@
-package com.github.bettercolony.interactions;
+package com.colonizer.dialog;
 
 import java.util.List;
 import java.util.Map;

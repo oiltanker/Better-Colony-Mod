@@ -1,4 +1,4 @@
-package com.github.bettercolony.interactions;
+package com.colonizer.dialog;
 
 public class Triggers {
     public static String POPULATE_OPTIONS = "PopulateOptions";

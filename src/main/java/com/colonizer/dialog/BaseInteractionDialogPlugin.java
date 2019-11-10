@@ -1,15 +1,14 @@
-package com.github.bettercolony.interactions;
+package com.colonizer.dialog;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.colonizer.config.Expense;
 import com.fs.starfarer.api.EveryFrameScript;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.ui.Alignment;
 import com.fs.starfarer.api.util.Misc;
-import com.github.bettercolony.config.Expense;
-import com.github.bettercolony.interactions.Option;
 
 import org.apache.log4j.Logger;
 

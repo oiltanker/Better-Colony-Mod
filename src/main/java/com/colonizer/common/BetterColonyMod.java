@@ -1,4 +1,4 @@
-package com.github.bettercolony;
+package com.colonizer.common;
 
 import org.apache.log4j.Logger;
 
@@ -18,8 +18,9 @@ import com.fs.starfarer.api.impl.campaign.econ.impl.PopulationAndInfrastructure;
 import com.fs.starfarer.api.impl.campaign.procgen.Constellation;
 import com.fs.starfarer.api.impl.campaign.procgen.themes.SectorThemeGenerator;
 import com.fs.starfarer.api.impl.campaign.procgen.themes.ThemeGenContext;
-import com.github.bettercolony.interactions.DefaultingInteractionDialogPlugin;
-import com.github.bettercolony.interactions.building.ColonizationInteractionDialogListener;
+import com.colonizer.dialog.DefaultingInteractionDialogPlugin;
+import com.colonizer.stations.BuildableStationGenerator;
+import com.colonizer.stations.dialog.ColonizationInteractionDialogListener;
 
 public class BetterColonyMod extends BaseModPlugin {
 
@@ -47,7 +48,7 @@ public class BetterColonyMod extends BaseModPlugin {
         if (newGame) {
             memory.set("$better_colony_mod", true);
             memory.set("$better_colony_mod.version", VERSION);
-            Global.getSector().registerPlugin(new BuildingCampaignPlugin());
+            Global.getSector().registerPlugin(new ColonizerCampaignPlugin());
             memory.set("$better_colony_mod.registrations", "com.github.bettercolony.BuildingCampaignPlugin");
         } else {
             Object genObj = memory.get("$better_colony_mod");
@@ -66,7 +67,7 @@ public class BetterColonyMod extends BaseModPlugin {
 
             // Plugin registration
             if (!registrations.contains("com.github.bettercolony.BuildingCampaignPlugin")) {
-                Global.getSector().registerPlugin(new BuildingCampaignPlugin());
+                Global.getSector().registerPlugin(new ColonizerCampaignPlugin());
                 registrations.add("com.github.bettercolony.BuildingCampaignPlugin");
             }
             if (registrations.size() > 0) {

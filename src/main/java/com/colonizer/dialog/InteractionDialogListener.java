@@ -1,7 +1,8 @@
-package com.github.bettercolony.interactions;
+package com.colonizer.dialog;
 
 import java.util.List;
 
+import com.colonizer.config.Expense;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.CargoAPI;
@@ -21,7 +22,6 @@ import com.fs.starfarer.api.impl.campaign.rulecmd.FireBest;
 import com.fs.starfarer.api.impl.campaign.rulecmd.salvage.SalvageEntity;
 import com.fs.starfarer.api.ui.Alignment;
 import com.fs.starfarer.api.util.Misc;
-import com.github.bettercolony.config.Expense;
 
 public abstract class InteractionDialogListener {
 
