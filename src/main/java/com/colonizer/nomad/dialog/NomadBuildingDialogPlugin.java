@@ -11,6 +11,7 @@ import com.fs.starfarer.api.impl.campaign.ids.Conditions;
 import com.fs.starfarer.api.impl.campaign.ids.Factions;
 import com.fs.starfarer.api.impl.campaign.ids.Submarkets;
 import com.fs.starfarer.api.impl.campaign.submarkets.StoragePlugin;
+import com.colonizer.config.Nomad;
 import com.colonizer.config.Stations;
 import com.colonizer.dialog.BaseInteractionDialogPlugin;
 import com.colonizer.dialog.DefaultingInteractionDialogPlugin;
@@ -48,12 +49,12 @@ public class NomadBuildingDialogPlugin extends BaseInteractionDialogPlugin<Nomad
             options.addOption("Proceed with building the station", NomadOption.CONFIRM_BUILD);
             options.addOption("Never mind", NomadOption.INIT);
 
-            if (!showCost("Resources: required (available)", Stations.MINING.cost, false) && !Global.getSettings().isDevMode())
+            if (!showCost("Resources: required (available)", Nomad.Construction.STAGE_1.cost, false) && !Global.getSettings().isDevMode())
                 options.setEnabled(NomadOption.CONFIRM_BUILD, false);
         } else if (option == NomadOption.CONFIRM_BUILD) {
-            chargeCost(Stations.MINING.cost);
+            chargeCost(Nomad.Construction.STAGE_1.cost);
             
-            SectorEntityToken station = replaceEntity(playerFleet.getStarSystem(), target, Stations.MINING.type, Factions.NEUTRAL);
+            SectorEntityToken station = replaceEntity(playerFleet.getStarSystem(), target, Nomad.Construction.STAGE_1.entity, Factions.PLAYER);
             LocationAPI location = station.getContainingLocation();
             station.setName(location.getNameWithTypeIfNebula() + " " + station.getCustomEntitySpec().getNameInText());
 

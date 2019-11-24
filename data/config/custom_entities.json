@@ -5,7 +5,7 @@
 		"aOrAn":"a",
 		"isOrAre":"is",
 		"interactionImage":"graphics/illustrations/free_orbit.jpg",
-		"layers":[STATIONS],
+		"layers":[STATIONS]
 	},
     "mining_station_location":{
 		"baseId":"base_station_location",
@@ -16,7 +16,7 @@
 		"icon":"graphics/icons/mining_location.png",
 		"iconWidth":30,
 		"iconHeight":30,
-		"tags":["has_interaction_dialog", "mining_station_location"],
+		"tags":["has_interaction_dialog", "mining_station_location"]
     },
     "research_station_location":{
 		"baseId":"base_station_location",
@@ -27,7 +27,7 @@
 		"icon":"graphics/icons/research_location.png",
 		"iconWidth":30,
 		"iconHeight":30,
-		"tags":["has_interaction_dialog", "research_station_location"],
+		"tags":["has_interaction_dialog", "research_station_location"]
     },
     "commercial_station_location":{
 		"baseId":"base_station_location",
@@ -38,7 +38,7 @@
 		"icon":"graphics/icons/commercial_location.png",
 		"iconWidth":30,
 		"iconHeight":30,
-		"tags":["has_interaction_dialog", "commercial_station_location"],
+		"tags":["has_interaction_dialog", "commercial_station_location"]
 	},
 	"buildable_station": {
 		"defaultName":"Buildable station",
@@ -59,7 +59,7 @@
 		"scaleNameWithZoom":false,
 		"scaleIconWithZoom":true,
 		"tags":["station", "buildable_station"],
-		"layers":[STATIONS],
+		"layers":[STATIONS]
 	},
 	"makeshift_mining_station":{
 		"baseId":"buildable_station",
@@ -69,7 +69,7 @@
 		"customDescriptionId":"makeshift_mining_station",
 		"sprite":"graphics/stations/station_mining00.png",
 		"spriteWidth":80,
-		"spriteHeight":80,
+		"spriteHeight":80
 	},
 	"makeshift_commercial_station":{
 		"baseId":"buildable_station",
@@ -79,6 +79,16 @@
 		"customDescriptionId":"makeshift_mining_station",
 		"sprite":"graphics/stations/station_side02.png",
 		"spriteWidth":100,
-		"spriteHeight":100,
+		"spriteHeight":100
 	},
+	"nomad_construction":{
+		"baseId":"buildable_station",
+		"defaultName":"Nomad construction site",
+		"nameInText":"nomad construction site",
+		"shortName":"nomad construction site",
+		"customDescriptionId":"nomad_construction",
+		"sprite":"graphics/stations/nomad_construction.png",
+		"spriteWidth":100,
+		"spriteHeight":100
+	}
 }

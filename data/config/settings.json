@@ -2,10 +2,12 @@
     "minBuildableStationsOfType": 2,
     "maxBuildableStationsOfType": 4,
     "buildableStationClearance": 500.0,
-    "colonizationCost": {
-        "crew": 1000,
-        "heavy_machinery": 100,
-        "supplies": 200
+    "colonization": {
+        "cost": {
+            "crew": 1000,
+            "heavy_machinery": 100,
+            "supplies": 200
+        }
     },
     "buildableMiningStation": {
         "cost": {
@@ -13,7 +15,8 @@
             "metals": 2500,
             "heavy_machinery": 100,
             "fuel": 125
-        }
+        },
+        "time": 60
     },
     "buildableCommercialStation": {
         "cost": {
@@ -21,6 +24,29 @@
             "metals": 2500,
             "heavy_machinery": 100,
             "fuel": 125
+        },
+        "time": 60
+    },
+    "nomad": {
+        "construction": {
+            "stage1": {
+                "cost": {
+                    "supplies": 150,
+                    "metals": 1000,
+                    "heavy_machinery": 50,
+                    "fuel": 125
+                },
+                "time": 60
+            },
+            "stage2": {
+                "cost": {
+                    "supplies": 150,
+                    "metals": 1000,
+                    "heavy_machinery": 50,
+                    "fuel": 125
+                },
+                "time": 120
+            }
         }
     },
     "ruleCommandPackages":[
